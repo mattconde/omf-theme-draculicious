@@ -130,12 +130,12 @@ function prompt_user -d "Display current user if different from $default_user"
       else
         set USER_PROMPT $USER
       end
-      prompt_segment brgrey white $USER_PROMPT
+      prompt_segment brmagenta black $USER_PROMPT
     end
   else
     get_hostname
     if [ $HOSTNAME_PROMPT ]
-      prompt_segment brgrey white $HOSTNAME_PROMPT
+      prompt_segment brmagenta black $HOSTNAME_PROMPT
     end
   end
 end
@@ -161,7 +161,7 @@ function prompt_hg -d "Display mercurial state"
       set state (command hg prompt "{status}")
       set branch_symbol \uE0A0
       if [ "$state" = "!" ]
-        prompt_segment red white "$branch_symbol $branch ±"
+        prompt_segment red black "$branch_symbol $branch ±"
       else if [ "$state" = "?" ]
           prompt_segment yellow black "$branch_symbol $branch ±"
         else
