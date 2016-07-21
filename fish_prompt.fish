@@ -130,12 +130,12 @@ function prompt_user -d "Display current user if different from $default_user"
       else
         set USER_PROMPT $USER
       end
-      prompt_segment brmagenta black $USER_PROMPT
+      prompt_segment magenta black $USER_PROMPT
     end
   else
     get_hostname
     if [ $HOSTNAME_PROMPT ]
-      prompt_segment brmagenta black $HOSTNAME_PROMPT
+      prompt_segment magenta black $HOSTNAME_PROMPT
     end
   end
 end
