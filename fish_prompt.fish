@@ -125,12 +125,20 @@ end
 function prompt_user -d "Display current user if different from $default_user"
   if [ "$theme_display_user" = "yes" ]
     if [ "$USER" != "$default_user" -o -n "$SSH_CLIENT" ]
-      get_username
+      set USER (whoami)
       get_hostname
       if [ $HOSTNAME_PROMPT ]
-        set USER_PROMPT $USER@$HOSTNAME_PROMPT
+        if [ "$theme_use_alias" = "yes" ]
+          set USER_PROMPT $theme_user_alias@$HOSTNAME_PROMPT
+        else
+          set USER_PROMPT $USER@$HOSTNAME_PROMPT
+        end
       else
-        set USER_PROMPT $USER
+        if [ "$theme_use_alias" = "yes" ]
+          set USER_PROMPT $theme_user_alias
+        else
+          set USER_PROMPT $USER
+        end
       end
       prompt_segment magenta black $USER_PROMPT
     end
@@ -146,14 +154,6 @@ function get_hostname -d "Set current hostname to prompt variable $HOSTNAME_PROM
   set -g HOSTNAME_PROMPT ""
   if [ "$theme_hide_hostname" = "no" -o \( "$theme_hide_hostname" != "yes" -a -n "$SSH_CLIENT" \) ]
     set -g HOSTNAME_PROMPT (hostname)
-  end
-end
-
-function get_username -d "Set username to prompt variable $USERNAME_PROMPT"
-  if [ "$theme_use_alias" = "yes" ]
-    set USER $theme_user_alias
-  else
-    set USER (whoami)
   end
 end
 
