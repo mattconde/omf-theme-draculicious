@@ -18,10 +18,10 @@
 
 set fish_color_normal normal # the default color
 set fish_color_command blue # the color for commands
-# set fish_color_quote # the color for quoted blocks of text
+set fish_color_quote bryellow # the color for quoted blocks of text
 # set fish_color_redirection # the color for IO redirections
 # set fish_color_end # the color for process separators like ';' and '&'
-# set fish_color_error # the color used to highlight potential errors
+set fish_color_error brred # the color used to highlight potential errors
 set fish_color_param cyan # the color for regular command parameters
 # set fish_color_comment # the color used for code comments
 # set fish_color_match # the color used to highlight matching parenthesis
@@ -30,7 +30,7 @@ set fish_color_param cyan # the color for regular command parameters
 # set fish_color_escape # the color used to highlight character escapes like '\n' and '\x70'
 # set fish_color_cwd # the color used for the current working directory in the default prompt
 set fish_color_autosuggestion brgrey # the color used for autosuggestions
-set fish_color_user bryellow # the color used to print the current username in some of fish default prompts
+set fish_color_user white # the color used to print the current username in some of fish default prompts
 # set fish_color_host # the color used to print the current host system in some of fish default prompts
 
 # set fish_pager_color_prefix # the color of the prefix string, i.e. the string that is to be completed
@@ -161,7 +161,7 @@ function prompt_hg -d "Display mercurial state"
       set state (command hg prompt "{status}")
       set branch_symbol \uE0A0
       if [ "$state" = "!" ]
-        prompt_segment red black "$branch_symbol $branch ±"
+        prompt_segment brred black "$branch_symbol $branch ±"
       else if [ "$state" = "?" ]
           prompt_segment yellow black "$branch_symbol $branch ±"
         else
@@ -223,7 +223,7 @@ end
 
 function prompt_status -d "the symbols for a non zero exit status, root and background jobs"
     if [ $RETVAL -ne 0 ]
-      prompt_segment brgrey red "✘"
+      prompt_segment brgrey brred "✘"
     end
 
     # if superuser (uid == 0)
