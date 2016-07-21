@@ -10,6 +10,8 @@
 # set -g theme_display_user yes
 # set -g theme_hide_hostname yes
 # set -g theme_hide_hostname no
+# set -g theme_use_alias yes
+# set -g theme_user_alias 1337UserName
 # set -g default_user your_normal_user
 
 # black, red, green, brown, yellow, blue, magenta, purple, cyan, grey,
@@ -123,7 +125,7 @@ end
 function prompt_user -d "Display current user if different from $default_user"
   if [ "$theme_display_user" = "yes" ]
     if [ "$USER" != "$default_user" -o -n "$SSH_CLIENT" ]
-      set USER (whoami)
+      get_username
       get_hostname
       if [ $HOSTNAME_PROMPT ]
         set USER_PROMPT $USER@$HOSTNAME_PROMPT
@@ -144,6 +146,14 @@ function get_hostname -d "Set current hostname to prompt variable $HOSTNAME_PROM
   set -g HOSTNAME_PROMPT ""
   if [ "$theme_hide_hostname" = "no" -o \( "$theme_hide_hostname" != "yes" -a -n "$SSH_CLIENT" \) ]
     set -g HOSTNAME_PROMPT (hostname)
+  end
+end
+
+function get_username -d "Set username to prompt variable $USERNAME_PROMPT"
+  if [ "$theme_use_alias" = "yes" ]
+    set USER $theme_user_alias
+  else
+    set USER (whoami)
   end
 end
 
