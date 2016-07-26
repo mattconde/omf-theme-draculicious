@@ -27,19 +27,24 @@ set fish_color_error brred # the color used to highlight potential errors
 set fish_color_param cyan # the color for regular command parameters
 # set fish_color_comment # the color used for code comments
 # set fish_color_match # the color used to highlight matching parenthesis
-# set fish_color_search_match # the color used to highlight history search matches
+set fish_color_search_match purple # the color used to highlight history search matches
+set fish_color_selection purple
 # set fish_color_operator # the color for parameter expansion operators like '*' and '~'
 # set fish_color_escape # the color used to highlight character escapes like '\n' and '\x70'
 # set fish_color_cwd # the color used for the current working directory in the default prompt
+# set fish_color_cwd_root
 set fish_color_autosuggestion brgrey # the color used for autosuggestions
 set fish_color_user white # the color used to print the current username in some of fish default prompts
 # set fish_color_host # the color used to print the current host system in some of fish default prompts
 
 # set fish_pager_color_prefix # the color of the prefix string, i.e. the string that is to be completed
-set fish_pager_color_completion brgrey # the color of the completion itself
+set fish_pager_color_completion normal # the color of the completion itself
 # set fish_pager_color_description # the color of the completion description
 # set fish_pager_color_progress # the color of the progress bar at the bottom left corner
 # set fish_pager_color_secondary # the background color of the every second completion
+# set fish_color_history_current
+# set fish_color_status
+# set fish_bind_mode
 
 set -g current_bg NONE
 set segment_separator \uE0B0
@@ -161,7 +166,6 @@ function prompt_dir -d "Display the current directory"
   prompt_segment brblue black (prompt_pwd)
 end
 
-
 function prompt_hg -d "Display mercurial state"
   set -l branch
   set -l state
@@ -180,7 +184,6 @@ function prompt_hg -d "Display mercurial state"
     end
   end
 end
-
 
 function prompt_git -d "Display the current git state"
   set -l ref
@@ -201,7 +204,6 @@ function prompt_git -d "Display the current git state"
     end
   end
 end
-
 
 function prompt_svn -d "Display the current svn state"
   set -l ref
@@ -229,7 +231,6 @@ end
 function svn_get_revision -d "get the current revision number"
   svn info 2> /dev/null | sed -n 's/Revision:\ //p'
 end
-
 
 function prompt_status -d "the symbols for a non zero exit status, root and background jobs"
     if [ $RETVAL -ne 0 ]
