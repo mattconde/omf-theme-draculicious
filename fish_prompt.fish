@@ -18,33 +18,33 @@
 # brgrey, brred, brgreen, brbrown, bryellow, brblue, brmagenta, brpurple, brcyan,
 # white, normal
 
-set -g fish_color_normal white # the default color
-set -g fish_color_command blue # the color for commands
-set -g fish_color_quote bryellow # the color for quoted blocks of text
 # set fish_color_redirection # the color for IO redirections
 # set fish_color_end # the color for process separators like ';' and '&'
-set -g fish_color_error brred # the color used to highlight potential errors
-set -g fish_color_param cyan # the color for regular command parameters
 # set fish_color_comment # the color used for code comments
 # set fish_color_match # the color used to highlight matching parenthesis
-set -g fish_color_search_match magenta # the color used to highlight history search matches
-set -g fish_color_selection magenta
 # set fish_color_operator # the color for parameter expansion operators like '*' and '~'
 # set fish_color_escape # the color used to highlight character escapes like '\n' and '\x70'
 # set fish_color_cwd # the color used for the current working directory in the default prompt
 # set fish_color_cwd_root
-set -g fish_color_autosuggestion grey # the color used for autosuggestions
-set -g fish_color_user white # the color used to print the current username in some of fish default prompts
 # set fish_color_host # the color used to print the current host system in some of fish default prompts
 # set fish_color_history_current
 # set fish_color_status
 # set fish_color_valid_path
+# set fish_pager_color_progress # the color of the progress bar at the bottom left corner
+# set fish_pager_color_secondary # the background color of the every second completion
 
+set -g fish_color_normal white # the default color
+set -g fish_color_command blue # the color for commands
+set -g fish_color_quote bryellow # the color for quoted blocks of text
+set -g fish_color_error brred # the color used to highlight potential errors
+set -g fish_color_param cyan # the color for regular command parameters
+set -g fish_color_search_match --background=grey # the color used to highlight history search matches
+set -g fish_color_selection --background=magenta
+set -g fish_color_autosuggestion grey # the color used for autosuggestions
+set -g fish_color_user white # the color used to print the current username in some of fish default prompts
 set -g fish_pager_color_prefix green # the color of the prefix string, i.e. the string that is to be completed
 set -g fish_pager_color_completion white # the color of the completion itself
 set -g fish_pager_color_description brgrey # the color of the completion description
-# set fish_pager_color_progress # the color of the progress bar at the bottom left corner
-# set fish_pager_color_secondary # the background color of the every second completion
 
 set -g current_bg NONE
 set segment_separator \uE0B0
