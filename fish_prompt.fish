@@ -8,19 +8,15 @@
 
 ## Set this options in your config.fish (if you want to :])
 # set -g theme_display_user yes
-# set -g theme_hide_hostname yes
-# set -g theme_hide_hostname no
 # set -g theme_use_alias yes
 # set -g theme_user_alias 1337UserName
+# set -g theme_hide_hostname yes
+# set -g theme_hide_hostname no
 # set -g default_user your_normal_user
 
-# black, red, green, brown, yellow, blue, magenta, purple, cyan, grey,
-# brgrey, brred, brgreen, brbrown, bryellow, brblue, brmagenta, brpurple, brcyan,
-# white, normal
-
+# Unused variables
 # set fish_color_redirection # the color for IO redirections
 # set fish_color_end # the color for process separators like ';' and '&'
-# set fish_color_comment # the color used for code comments
 # set fish_color_match # the color used to highlight matching parenthesis
 # set fish_color_operator # the color for parameter expansion operators like '*' and '~'
 # set fish_color_escape # the color used to highlight character escapes like '\n' and '\x70'
@@ -34,10 +30,11 @@
 # set fish_pager_color_secondary # the background color of the every second completion
 
 set -g fish_color_normal white # the default color
-set -g fish_color_command blue # the color for commands
+set -g fish_color_command brmagenta # the color for commands
+set -g fish_color_comment brgrey # the color used for code comments
 set -g fish_color_quote bryellow # the color for quoted blocks of text
 set -g fish_color_error brred # the color used to highlight potential errors
-set -g fish_color_param cyan # the color for regular command parameters
+set -g fish_color_param brcyan # the color for regular command parameters
 set -g fish_color_search_match --background=grey # the color used to highlight history search matches
 set -g fish_color_selection --background=magenta
 set -g fish_color_autosuggestion grey # the color used for autosuggestions
