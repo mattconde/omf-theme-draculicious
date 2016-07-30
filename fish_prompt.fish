@@ -43,6 +43,8 @@ set -g fish_pager_color_prefix green # the color of the prefix string, i.e. the 
 set -g fish_pager_color_completion white # the color of the completion itself
 set -g fish_pager_color_description brgrey # the color of the completion description
 
+set -g draculicious_ls_colors brblue
+
 set -g current_bg NONE
 set segment_separator \uE0B0
 set right_segment_separator \uE0B0
@@ -244,6 +246,18 @@ function prompt_status -d "the symbols for a non zero exit status, root and back
     if [ (jobs -l | wc -l) -gt 0 ]
       prompt_segment brgrey cyan "⚙"
     end
+end
+
+
+# ===========================
+# Functions
+# ===========================
+
+# http://www.cyberciti.biz/faq/apple-mac-osx-terminal-color-ls-output-option/
+set -g CLICOLOR 1
+set -g LSCOLORS Exfxcxdxbxegedabagacad
+function ls --description 'List contents of directory'
+    command ls -G -F $argv
 end
 
 # ===========================
