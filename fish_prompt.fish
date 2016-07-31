@@ -236,20 +236,21 @@ end
 
 function prompt_status -d "the symbols for a non zero exit status, root and background jobs"
     if [ $RETVAL -ne 0 ]
-      prompt_segment brgrey brred "✘"
+      prompt_segment black brred "✘"
     end
 
     # if superuser (uid == 0)
     set -l uid (id -u $USER)
     if [ $uid -eq 0 ]
-      prompt_segment brgrey yellow "⚡"
+      prompt_segment black yellow "⚡"
     end
 
     # Jobs display
     if [ (jobs -l | wc -l) -gt 0 ]
-      prompt_segment brgrey cyan "⚙"
+      prompt_segment black cyan "⚙"
     end
 end
+
 
 # ===========================
 # Apply theme
