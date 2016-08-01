@@ -177,11 +177,11 @@ function prompt_hg -d "Display mercurial state"
       set state (command hg prompt "{status}")
       set branch_symbol \uE0A0
       if [ "$state" = "!" ]
-        prompt_segment brred black "$branch_symbol $branch ±"
+        prompt_segment bryellow black "$branch_symbol $branch ±"
       else if [ "$state" = "?" ]
-          prompt_segment yellow black "$branch_symbol $branch ±"
+          prompt_segment bryellow black "$branch_symbol $branch ±"
         else
-          prompt_segment green black "$branch_symbol $branch"
+          prompt_segment brgreen black "$branch_symbol $branch"
       end
     end
   end
@@ -200,9 +200,9 @@ function prompt_git -d "Display the current git state"
     set branch_symbol \uE0A0
     set -l branch (echo $ref | sed  "s-refs/heads/-$branch_symbol -")
     if [ "$dirty" != "" ]
-      prompt_segment yellow black "$branch $dirty"
+      prompt_segment bryellow black "$branch $dirty"
     else
-      prompt_segment green black "$branch $dirty"
+      prompt_segment brgreen black "$branch $dirty"
     end
   end
 end
@@ -213,7 +213,7 @@ function prompt_svn -d "Display the current svn state"
     set branch (svn_get_branch)
     set branch_symbol \uE0A0
     set revision (svn_get_revision)
-    prompt_segment green black "$branch_symbol $branch:$revision"
+    prompt_segment brgreen black "$branch_symbol $branch:$revision"
   end
 end
 
