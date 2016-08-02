@@ -45,8 +45,42 @@ set -g fish_pager_color_description brgrey # the color of the completion descrip
 
 # LS Color options
 # http://www.cyberciti.biz/faq/apple-mac-osx-terminal-color-ls-output-option/
+#
+# Defaults
+# IS ATTRIBUTE | FOREGROUND COLOR | BACKGROUND COLOR
+# directory    | e                | x
+# symbolic     | f                | x
+# socket       | c                | x
+# pipe         | d                | x
+# executable   | b                | x
+# block        | e                | g
+# character    | e                | d
+# executable   | a                | b
+# executable   | a                | g
+# directory    | a                | c
+# directory    | a                | d
+#
+# Colors
+# CODE | COLOR
+# a    | Black
+# b    | Red
+# c    | Green
+# d    | Brown / yellow
+# e    | Blue
+# f    | Magenta
+# g    | Cyan
+# h    | Grey / white
+# A    | Light black
+# B    | Light red
+# C    | Light green
+# D    | Light brown / yellow
+# E    | Light blue
+# F    | Light magenta
+# G    | Light cyan
+# H    | Light grey / white
+# x    | Default foreground or background
 set -Ux CLICOLOR 1
-set -Ux LSCOLORS Exfxcxdxbxegedabagacad
+set -Ux LSCOLORS ExfxcxdxBxegedabagacad
 
 set -g current_bg NONE
 set segment_separator \uE0B0
