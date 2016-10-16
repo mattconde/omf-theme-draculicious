@@ -79,8 +79,8 @@ set -g fish_pager_color_description brgrey # the color of the completion descrip
 # G    | Light cyan
 # H    | Light grey / white
 # x    | Default foreground or background
-set -Ux CLICOLOR 1
-set -Ux LSCOLORS ExfxcxdxBxegedabagacad
+set -g CLICOLOR 1
+set -g LSCOLORS ExfxcxdxBxegedabagacad
 
 set -g current_bg NONE
 set segment_separator \uE0B0
